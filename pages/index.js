@@ -19,9 +19,11 @@ export default function Home() {
    setToken(token)
   },[])
 
-  if(!token){
-    router.push('/Auth/Registration')
-  }
+  useEffect(() => {
+    if (!token && typeof window !== "undefined") {
+      router.push('/Auth/Registration');
+    }
+  }, [token, router]);
   return (
     <>
      <Layout>
