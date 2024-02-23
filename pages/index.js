@@ -6,8 +6,22 @@ import Layout from "@/components/Shared/Layout";
 import Upcoming from "@/components/UpcomingEssentials/Upcoming";
 import WebSeriesIntroSection from "@/components/WebSeriesEssentials/WebSeriesIntroSection";
 import WebSeriesSubNav from "@/components/WebSeriesEssentials/WebSeriesSubNav";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [token,setToken]=useState("")
+  const router=useRouter()
+ 
+  useEffect(()=>{
+   const ls=typeof window!="undefined"?window.localStorage:null
+   const token =ls?.getItem("token")
+   setToken(token)
+  },[])
+
+  if(!token){
+    router.push('/Auth/Registration')
+  }
   return (
     <>
      <Layout>
