@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 
 const baseUrl = "https://blogtest.emdb.online/api";
-
+const token1="3|dmp1jetJrpMmz8HSUQGnamVheomzQl2Lpu20X29scd3cac73"
 
 
 const Articles = () => {
@@ -20,7 +20,7 @@ const Articles = () => {
 
     axios.get(`${baseUrl}/articles`,{
       headers:{
-        Authorization:`Bearer ${token}`
+        Authorization:`Bearer ${token1}`
       }
     }).then(res=>setLatestArticles(res.data.articles))
   },[])

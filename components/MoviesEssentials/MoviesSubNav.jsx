@@ -5,6 +5,7 @@ import { IoIosArrowBack, IoIosArrowDown } from "react-icons/io";
 
 
 const baseUrl='https://blogtest.emdb.online/api'
+const token1="3|dmp1jetJrpMmz8HSUQGnamVheomzQl2Lpu20X29scd3cac73"
 
 const MoviesSubNav = () => {
   const [openMoviesSubNav,setOpenMoviesSubNav]=useState(false)
@@ -18,7 +19,7 @@ const MoviesSubNav = () => {
     //get genres
     axios.get(`${baseUrl}/genres`,{
       headers:{
-        Authorization:` Bearer ${token}`
+        Authorization:` Bearer ${token1}`
       }
     }).then(res=>setGenres(res.data.genres))
 

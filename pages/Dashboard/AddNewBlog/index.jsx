@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 
 const baseUrl = "https://blogtest.emdb.online/api";
+const token1="3|dmp1jetJrpMmz8HSUQGnamVheomzQl2Lpu20X29scd3cac73"
 const ls = typeof window !== "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
 
@@ -36,7 +37,7 @@ const index = () => {
     axios
       .get(`${baseUrl}/genres`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token1}`,
         },
       })
       .then((res) => setGenres(res.data.genres));
@@ -44,7 +45,7 @@ const index = () => {
     axios
       .get(`${baseUrl}/categories`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token1}`,
         },
       })
       .then((res) => setCategories(res.data.categories));
@@ -84,7 +85,7 @@ const index = () => {
     fetch(`${baseUrl}/articles/create`, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token1}`,
       },
       body: formData,
     })

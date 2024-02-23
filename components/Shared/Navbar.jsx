@@ -24,7 +24,7 @@ const Navbar = () => {
         <div
         onClick={()=>{
           router.push('/Movies')
-          window.open('/Auth/Registration','_blank')
+          // window.open('/Auth/Registration','_blank')
         }}
         className={`flex items-center justify-center gap-4 cursor-pointer ${pathname.includes("/Movies") ? "text-red-500":"hover:text-red-300"}  px-5 py-2 rounded-lg`}>
           <ImFilm />

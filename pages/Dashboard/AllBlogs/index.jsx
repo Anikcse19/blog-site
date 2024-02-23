@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const baseUrl = "https://blogtest.emdb.online/api";
+const token1="3|dmp1jetJrpMmz8HSUQGnamVheomzQl2Lpu20X29scd3cac73"
 const ls = typeof window !== "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
 
@@ -17,7 +18,7 @@ const index = () => {
     axios
       .get(`${baseUrl}/articles`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token1}`,
         },
       })
       .then((res) => setArticles(res.data.articles));
@@ -34,7 +35,7 @@ const index = () => {
       method:"POST",
       headers:{
         Accept:"application/json",
-        Authorization:`Bearer ${token}`
+        Authorization:`Bearer ${token1}`
       }
     }).then(res=>res.json()).then(data=>{
       if(data.msg==='success'){

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 
 const baseUrl = "https://blogtest.emdb.online/api";
+const token1="3|dmp1jetJrpMmz8HSUQGnamVheomzQl2Lpu20X29scd3cac73"
 const ls = typeof window !== "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
 
@@ -17,7 +18,7 @@ const index = () => {
     axios
       .get(`${baseUrl}/categories`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token1}`,
         },
       })
       .then((res) => setCategories(res.data.categories));
@@ -35,7 +36,7 @@ const index = () => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token1}`,
       },
       body: JSON.stringify(data),
     })
@@ -55,7 +56,7 @@ const index = () => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token1}`,
       },
     })
       .then((res) => res.json())

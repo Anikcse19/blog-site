@@ -5,6 +5,7 @@ import BannerSlider from "../Slider/BannerSlider";
 // import { Carousel } from "react-responsive-carousel";
 
 const baseUrl = "https://blogtest.emdb.online/api";
+const token1="3|dmp1jetJrpMmz8HSUQGnamVheomzQl2Lpu20X29scd3cac73"
 
 const HomeBanner = () => {
   const router = useRouter();
@@ -24,7 +25,7 @@ const HomeBanner = () => {
     axios
       .get(`${baseUrl}/articles`, {
         headers: {
-          Authorization: ` Bearer ${token}`,
+          Authorization: ` Bearer ${token1}`,
         },
       })
       .then((res) => setArticles(res.data.articles));
@@ -35,7 +36,7 @@ const HomeBanner = () => {
     axios
       .get(`${baseUrl}/films/suggestions`, {
         headers: {
-          Authorization: ` Bearer ${token}`,
+          Authorization: ` Bearer ${token1}`,
         },
       })
       .then((res) => setSuggetionMovies(res.data.films));

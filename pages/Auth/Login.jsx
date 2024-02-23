@@ -1,7 +1,9 @@
+import { StateContext } from "@/ContextApi/StateContext/StateContext";
 import axios from "axios";
+import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { FaLock } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
@@ -17,6 +19,7 @@ const Login = () => {
   const [passwordMissingError,setPasswordMissingError]=useState(false)
 
     const router=useRouter()
+    const {isAuthenticate,setIsAuthenticate}=useContext(StateContext)
 
     const handleLogin=()=>{
       setError(false)
@@ -36,12 +39,16 @@ const Login = () => {
 
       axios.post(`${baseUrl}/login`,data).then(res=>{
         if(res.data.msg==='success'){
-          localStorage.setItem("token",res.data.token)
-          localStorage.setItem("user",JSON.stringify(res.data.user))
-          router.push("/")
-          toast.success("Successfully Sign in",{
-            position:"top-right"
-          })
+          Cookies.set("token",res?.data?.token)
+          localStorage.setItem("token",res?.data?.token)
+          localStorage.setItem("user",JSON.stringify(res?.data?.user))
+          if(localStorage.getItem("token")){
+            setIsAuthenticate(true)
+            router.push("/")
+            toast.success("Successfully Sign in",{
+              position:"top-right"
+            })
+          }
         }else{
           setError(true)
         }

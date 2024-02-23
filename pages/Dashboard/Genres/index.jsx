@@ -5,6 +5,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 
 const baseUrl="https://blogtest.emdb.online/api"
+const token1="3|dmp1jetJrpMmz8HSUQGnamVheomzQl2Lpu20X29scd3cac73"
 const ls = typeof window !== "undefined" ? window.localStorage : null;
 const token = ls?.getItem("token");
 
@@ -16,7 +17,7 @@ const index = () => {
   const fetchGenres=()=>{
     axios.get(`${baseUrl}/genres`,{
       headers:{
-        Authorization:`Bearer ${token}`
+        Authorization:`Bearer ${token1}`
       }
     }).then(res=>setGenres(res.data.genres))
   }
@@ -31,7 +32,7 @@ const index = () => {
       headers:{
         "Accept":"application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token1}`,
       },
       body:JSON.stringify(data)
     }).then(res=>res.json()).then(data=>{
@@ -50,7 +51,7 @@ const index = () => {
         headers:{
             "Accept":"application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token1}`,
         }
     }).then(res=>res.json()).then(data=>{
       fetchGenres()

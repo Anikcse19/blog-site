@@ -179,6 +179,7 @@ const suggestionMovies = [
 ];
 
 const baseUrl='https://blogtest.emdb.online/api'
+const token1="3|dmp1jetJrpMmz8HSUQGnamVheomzQl2Lpu20X29scd3cac73"
 const ArticleDetails = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [showAnswer1, setShowAnswer1] = useState(false);
@@ -197,7 +198,7 @@ const ArticleDetails = () => {
     const token=ls?.getItem("token")
     axios.get(`${baseUrl}/articles/${id}`,{
       headers:{
-        Authorization:`Bearer ${token}`
+        Authorization:`Bearer ${token1}`
       }
     }).then(res=>setArticle(res.data.article))
   })

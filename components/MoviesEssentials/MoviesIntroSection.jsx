@@ -5,6 +5,7 @@ import SectionSlider from "../Slider/SectionSlider";
 
 
 const baseUrl = "https://blogtest.emdb.online/api";
+const token1="3|dmp1jetJrpMmz8HSUQGnamVheomzQl2Lpu20X29scd3cac73"
 
 const MoviesIntroSection = () => {
   const [isHover, setIshover] = useState({
@@ -25,7 +26,7 @@ const MoviesIntroSection = () => {
     axios
       .get(`${baseUrl}/articles?category_id=1`, {
         headers: {
-          Authorization: ` Bearer ${token}`,
+          Authorization: ` Bearer ${token1}`,
         },
       })
       .then((res) => setMovies(res.data.articles));
@@ -36,7 +37,7 @@ const MoviesIntroSection = () => {
     axios
       .get(`${baseUrl}/films/suggestions?category_id=1`, {
         headers: {
-          Authorization: ` Bearer ${token}`,
+          Authorization: ` Bearer ${token1}`,
         },
       })
       .then((res) => setSuggetionMovies(res.data.films));
