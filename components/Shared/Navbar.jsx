@@ -20,14 +20,18 @@ const Navbar = () => {
           <FaHome />
           <span className="text-[18px] font-semibold">Home</span>
         </div>
+
         <div
         onClick={()=>{
           router.push('/Movies')
+          window.open('/Auth/Registration','_blank')
         }}
         className={`flex items-center justify-center gap-4 cursor-pointer ${pathname.includes("/Movies") ? "text-red-500":"hover:text-red-300"}  px-5 py-2 rounded-lg`}>
           <ImFilm />
           <span className="text-[18px] font-semibold">Movies</span>
         </div>
+
+
         <div onClick={()=>{
           router.push('/Action')
         }} className={`flex items-center justify-center gap-4 cursor-pointer ${pathname.includes("/Action") ? "text-red-500":"hover:text-red-300"}  px-5 py-2 rounded-lg`}>

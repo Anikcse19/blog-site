@@ -114,7 +114,7 @@ const index = () => {
       {/* blog main body---> what's on your mind */}
       <div className="px-5 py-5 rounded-md bg-white ">
         <h1 className="text-base md:text-lg lg:text-2xl font-bold">
-          What's on your mind??
+          What&apos;s on your mind??
         </h1>
 
         {/* blog content */}
